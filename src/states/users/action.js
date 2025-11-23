@@ -1,8 +1,8 @@
-import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import api from '../../utils/api';
+import { showLoading, hideLoading } from "react-redux-loading-bar";
+import api from "../../app/api/api";
 
 const ActionType = {
-  RECEIVE_USERS: 'RECEIVE_USERS',
+  RECEIVE_USERS: "RECEIVE_USERS",
 };
 
 function receiveUsersActionCreator(users) {

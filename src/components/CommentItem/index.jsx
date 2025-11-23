@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { createdAtToPostedAt } from '../../utils/helpers';
-import PostAccount from '../PostAccount';
-import './index.css';
-import Like from '../Thread/Like';
-import Dislike from '../Thread/Dislike';
-import { commentPropShape, ownerPropShape } from '../props';
+import React from "react";
+import PropTypes from "prop-types";
+import { createdAtToPostedAt } from "../../utils/utils";
+import PostAccount from "../PostAccount";
+import "./index.css";
+import Like from "../Thread/Like";
+import Dislike from "../Thread/Dislike";
+import { commentPropShape, ownerPropShape } from "../props";
 
 export default function CommentItem({
   id,

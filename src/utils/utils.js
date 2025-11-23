@@ -24,7 +24,7 @@ function createdAtToPostedAt(date) {
   if (diffSeconds > 0) {
     return `${diffSeconds} seconds ago`;
   }
-  return 'just now';
+  return "just now";
 }
 
 function countArray(array) {

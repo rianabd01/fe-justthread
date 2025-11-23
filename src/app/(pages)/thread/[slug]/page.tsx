@@ -1,21 +1,27 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+"use client";
+import { use, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   asyncReceiveThreadDetail,
   asyncAddComment,
-} from '../states/threadDetail/action';
-import ThreadDetail from '../components/ThreadDetail';
+} from "../../../../states/threadDetail/action";
+import ThreadDetail from "../../../../components/ThreadDetail";
 // import { asyncAddComment } from '../states/threadDetail/action';
 import {
   asyncDownVoteThread,
   asyncUpVoteThread,
-} from '../states/threads/action';
+} from "../../../../states/threads/action";
 
-export default function DetailPage() {
-  const { id } = useParams();
+export default function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug: id } = use(params);
+  console.log("slug", id);
+
   const { threadDetail = [], authUser = null } = useSelector(
-    (states) => states,
+    (states) => states
   );
   const dispatch = useDispatch();
 

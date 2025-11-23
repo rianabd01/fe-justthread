@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Leaderboard from '../components/Leaderboard';
-import { asyncReceiveLeaderboard } from '../states/leaderboard/action';
+"use client";
+
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Leaderboard from "../../../components/Leaderboard";
+import { asyncReceiveLeaderboard } from "../../../states/leaderboard/action";
 
 export default function LeaderboardPage() {
   const { leaderboards = [] } = useSelector((states) => states);

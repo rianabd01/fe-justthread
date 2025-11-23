@@ -1,12 +1,12 @@
 // eslint-disable-next-line object-curly-newline
-import { describe, it, vi, expect } from 'vitest';
-import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import api from '../../utils/api';
+import { describe, it, vi, expect } from "vitest";
+import { showLoading, hideLoading } from "react-redux-loading-bar";
+import api from "../../app/api/api";
 import {
   asyncReceiveThreadDetail,
   clearThreadDetailActionCreator,
   receiveThreadDetailActionCreator,
-} from './action';
+} from "./action";
 
 /**
  * skenario test
@@ -17,25 +17,25 @@ import {
  */
 
 const fakeThreadDetail = {
-  id: 'thread-Np47p4jhUXYhrhRn',
-  title: 'Bagaimana pengalamanmu belajar Redux?',
-  body: 'Coba ceritakan dong, gimana pengalaman kalian belajar Redux di Dicoding?',
-  createdAt: '2023-05-29T07:55:52.266Z',
+  id: "thread-Np47p4jhUXYhrhRn",
+  title: "Bagaimana pengalamanmu belajar Redux?",
+  body: "Coba ceritakan dong, gimana pengalaman kalian belajar Redux di Dicoding?",
+  createdAt: "2023-05-29T07:55:52.266Z",
   owner: {
-    id: 'user-mQhLzINW_w5TxxYf',
-    name: 'Dimas Saputra',
-    avatar: 'https://ui-avatars.com/api/?name=Dimas Saputra&background=random',
+    id: "user-mQhLzINW_w5TxxYf",
+    name: "Dimas Saputra",
+    avatar: "https://ui-avatars.com/api/?name=Dimas Saputra&background=random",
   },
-  category: 'redux',
+  category: "redux",
   comments: [],
   upVotesBy: [],
   downVotesBy: [],
 };
 
-const fakeErrorResponse = new Error('Ups, something went wrong');
+const fakeErrorResponse = new Error("Ups, something went wrong");
 
-describe('addThreadThunk', () => {
-  it('should dispatch action correctly when receive thead detail success', async () => {
+describe("addThreadThunk", () => {
+  it("should dispatch action correctly when receive thead detail success", async () => {
     // mock dispatch
     api._getThreadDetail = api.getThreadDetail;
 
@@ -49,7 +49,7 @@ describe('addThreadThunk', () => {
     expect(dispatch).toHaveBeenCalledWith(showLoading());
     expect(dispatch).toHaveBeenCalledWith(clearThreadDetailActionCreator());
     expect(dispatch).toHaveBeenCalledWith(
-      receiveThreadDetailActionCreator(fakeThreadDetail),
+      receiveThreadDetailActionCreator(fakeThreadDetail)
     );
 
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
@@ -58,7 +58,7 @@ describe('addThreadThunk', () => {
 
     delete api._getThreadDetail;
   });
-  it('should dispatch action correctly when receive thread detail error', async () => {
+  it("should dispatch action correctly when receive thread detail error", async () => {
     // mock dispatch
     api._getThreadDetail = api.getThreadDetail;
 

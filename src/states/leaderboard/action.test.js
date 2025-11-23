@@ -1,11 +1,11 @@
 // eslint-disable-next-line object-curly-newline
-import { describe, it, vi, beforeEach, afterEach, expect } from 'vitest';
-import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import api from '../../utils/api';
+import { describe, it, vi, beforeEach, afterEach, expect } from "vitest";
+import { showLoading, hideLoading } from "react-redux-loading-bar";
+import api from "../../app/api/api";
 import {
   asyncReceiveLeaderboard,
   receiveLeaderboardsActionCreator,
-} from './action';
+} from "./action";
 
 /**
  * skenario test
@@ -18,27 +18,27 @@ import {
 const fakeLeaderboards = [
   {
     user: {
-      id: 'user-mQhLzINW_w5TxxYf',
-      name: 'Dimas Saputra',
-      email: 'dimas@dicoding.com',
-      avatar: 'https://ui-avatars.com/api/?name=DimasSaputra&background=random',
+      id: "user-mQhLzINW_w5TxxYf",
+      name: "Dimas Saputra",
+      email: "dimas@dicoding.com",
+      avatar: "https://ui-avatars.com/api/?name=DimasSaputra&background=random",
     },
     score: 25,
   },
   {
     user: {
-      id: 'user-asdfkjadf_dsaf',
-      name: 'Dico',
-      email: 'dico@dicoding.com',
-      avatar: 'https://ui-avatars.com/api/?name=Dico&background=random',
+      id: "user-asdfkjadf_dsaf",
+      name: "Dico",
+      email: "dico@dicoding.com",
+      avatar: "https://ui-avatars.com/api/?name=Dico&background=random",
     },
     score: 10,
   },
 ];
 
-const fakeErrorResponse = new Error('Ups, something went wrong');
+const fakeErrorResponse = new Error("Ups, something went wrong");
 
-describe('asyncReceiveLeaderBoard thunk', () => {
+describe("asyncReceiveLeaderBoard thunk", () => {
   beforeEach(() => {
     api._getLeaderboards = api.getLeaderboards;
   });
@@ -48,7 +48,7 @@ describe('asyncReceiveLeaderBoard thunk', () => {
     delete api._getAllUsers;
   });
 
-  it('should dispatch action correctly when data fetching success', async () => {
+  it("should dispatch action correctly when data fetching success", async () => {
     api.getLeaderboards = () => Promise.resolve(fakeLeaderboards);
     // mock dispatch
 
@@ -59,12 +59,12 @@ describe('asyncReceiveLeaderBoard thunk', () => {
     // Assert
     expect(dispatch).toHaveBeenCalledWith(showLoading());
     expect(dispatch).toHaveBeenCalledWith(
-      receiveLeaderboardsActionCreator(fakeLeaderboards),
+      receiveLeaderboardsActionCreator(fakeLeaderboards)
     );
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
 
-  it('should dispatch action and call alert correctly when data fetching failed', async () => {
+  it("should dispatch action and call alert correctly when data fetching failed", async () => {
     // arrange
     api.getLeaderboards = () => Promise.reject(fakeErrorResponse);
     // mock dispatch

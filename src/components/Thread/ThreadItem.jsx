@@ -1,14 +1,14 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import ThreadTitle from './ThreadTitle';
-import ThreadBody from './ThreadBody';
-import Like from './Like';
-import Dislike from './Dislike';
-import Tags from './Tags';
-import PostAccount from '../PostAccount';
-import CommentThread from './CommentThread';
-import { threadPropShape } from '../props';
-import { countArray } from '../../utils/helpers';
+import React from "react";
+import ThreadTitle from "./ThreadTitle";
+import ThreadBody from "./ThreadBody";
+import Like from "./Like";
+import Dislike from "./Dislike";
+import Tags from "./Tags";
+import PostAccount from "../PostAccount";
+import CommentThread from "./CommentThread";
+import { threadPropShape } from "../props";
+import { countArray } from "../../utils/utils";
+import { useRouter } from "next/navigation";
 
 export default function ThreadItem({
   id,
@@ -25,14 +25,14 @@ export default function ThreadItem({
   onUpVote,
   onDownVote,
 }) {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const onThreadClick = () => {
-    navigate(`/thread/${id}`);
+    router.push(`/thread/${id}`);
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       onThreadClick();
     }
   };

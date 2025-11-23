@@ -1,17 +1,19 @@
-import React, { useEffect, useCallback } from "react";
+"use client";
+
+import { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Thread from "../components/Thread";
-import { asyncUsersAndThreads } from "../states/shared/action";
-import ThreadInput from "../components/ThreadInput";
+import Thread from "../../components/Thread";
+import { asyncUsersAndThreads } from "../../states/shared/action";
+import ThreadInput from "../../components/ThreadInput";
 import {
   asyncAddThread,
   asyncDownVoteThread,
   asyncUpVoteThread,
-} from "../states/threads/action";
-import { createdAtToPostedAt } from "../utils/utils";
-import { asyncToggleTag } from "../states/toggleTag/action";
+} from "../../states/threads/action";
+import { createdAtToPostedAt } from "../../utils/utils";
+import { asyncToggleTag } from "../../states/toggleTag/action";
 
-export default function Homepage() {
+export default function Home() {
   const {
     threads = [],
     users = [],

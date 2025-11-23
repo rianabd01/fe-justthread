@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './index.css';
-import BackToHome from '../BackToHome';
-import CommentInput from '../CommentInput';
-import CommentItem from '../CommentItem';
-import Dislike from '../Thread/Dislike';
-import Like from '../Thread/Like';
-import PostAccount from '../PostAccount';
-import Tags from '../Thread/Tags';
-import ThreadBody from '../Thread/ThreadBody';
-import ThreadTitle from '../Thread/ThreadTitle';
-import { countArray, createdAtToPostedAt } from '../../utils/helpers';
-import { authUserPropShape, commentPropShape, ownerPropShape } from '../props';
+import React from "react";
+import PropTypes from "prop-types";
+import "./index.css";
+import BackToHome from "../BackToHome";
+import CommentInput from "../CommentInput";
+import CommentItem from "../CommentItem";
+import Dislike from "../Thread/Dislike";
+import Like from "../Thread/Like";
+import PostAccount from "../PostAccount";
+import Tags from "../Thread/Tags";
+import ThreadBody from "../Thread/ThreadBody";
+import ThreadTitle from "../Thread/ThreadTitle";
+import { countArray, createdAtToPostedAt } from "../../utils/utils";
+import { authUserPropShape, commentPropShape, ownerPropShape } from "../props";
 
 export default function ThreadDetail({
   id,
@@ -45,7 +45,7 @@ export default function ThreadDetail({
           <p className="thread_header_created">{postedAt}</p>
         </div>
         <div className="thread_contents ">
-          <div className="thread_post" style={{ cursor: 'auto' }}>
+          <div className="thread_post" style={{ cursor: "auto" }}>
             <ThreadTitle title={title} />
             <ThreadBody body={body} />
           </div>
