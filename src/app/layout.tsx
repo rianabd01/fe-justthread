@@ -1,5 +1,6 @@
 import "./global.css";
 import type { Metadata } from "next";
+import ReduxProvider from "./provider";
 
 export const metadata: Metadata = {
   title: "JustThread",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div id="root">{children}</div>
+        <div id="root">
+          <ReduxProvider>{children}</ReduxProvider>
+        </div>
       </body>
     </html>
   );

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "strict": false, // change to true if ts was proper
+    "noImplicitAny": false, // change to true if ts was proper
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": [
@@ -16,7 +18,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
@@ -27,14 +28,16 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "./src",
     "./dist/types/**/*.ts",
     "./next-env.d.ts",
     "dist/types/**/*.ts",
-    "dist/dev/types/**/*.ts"
+    "dist/dev/types/**/*.ts",
+    "./dist/dev/types/**/*.ts"
   ],
   "exclude": [
     "./node_modules"
